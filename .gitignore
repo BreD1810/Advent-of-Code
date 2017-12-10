@@ -23,4 +23,5 @@ hs_err_pid*
 
 #Ignore .idea
 .idea/
+.out/
 *.iml
