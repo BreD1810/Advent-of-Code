@@ -9,3 +9,5 @@ These challenges were hosted on [adventofcode.com](http://adventofcode.com/2017)
 1. For each row of the spreadsheet, determine the difference between the largest and smallest value. The checksum is the sum of all of the row's differences.
 2. For each row of the spreadsheet, check for evenly divisible numbers. The checksum is the sum of all of the divisions in the row's. (Each row can only have one divisible pair).
 
+**3. Day 3 - Spiral Memory**
+1. Determine the shortest distance from a memory location to the center of the spiral using the Manhatten distance.
