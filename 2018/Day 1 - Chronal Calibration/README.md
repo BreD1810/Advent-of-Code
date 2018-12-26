@@ -1,4 +1,4 @@
-* Day 1: Chronal Calibration
+# Day 1: Chronal Calibration
 
 "We've detected some temporal anomalies," one of Santa's Elves at the Temporal Anomaly Research and Detection Instrument Station tells you. She sounded pretty worried when she called you down here. "At 500-year intervals into the past, someone has been changing Santa's history!"
 
@@ -8,7 +8,7 @@
 
 Collect stars by solving puzzles. Two puzzles will be made available on each day in the advent calendar; the second puzzle is unlocked when you complete the first. Each puzzle grants one star. Good luck!
 
-** Part One 
+## Part One 
 
 After feeling like you've been falling for a few minutes, you look at the device's tiny screen. "Error: Device must be calibrated before first use. Frequency drift detected. Cannot maintain destination lock." Below the message, the device shows a sequence of changes in frequency (your puzzle input). A value like +6 means the current frequency increases by 6; a value like -3 means the current frequency decreases by 3.
 
@@ -29,7 +29,7 @@ Here are other example situations:
 
 Starting with a frequency of zero, what is the resulting frequency after all of the changes in frequency have been applied?
 
-** Part Two
+## Part Two
 
 You notice that the device repeats the same frequency change list over and over. To calibrate the device, you need to find the first frequency it reaches twice.
 
