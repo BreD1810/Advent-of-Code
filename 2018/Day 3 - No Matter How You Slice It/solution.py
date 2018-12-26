@@ -40,6 +40,28 @@ def get_blank_claims_array(claims):
     return claims_array
 
 
+def get_no_overlap(claims):
+    claims_array = create_claims_array(claims)
+    for claim in claims:
+        matcher = re.match("#(\d+) @ (\d+),(\d+): (\d+)x(\d+)", claim)
+        # redfine the bounds
+        min_x = int(matcher.group(2))
+        max_x = min_x + int(matcher.group(4))
+        min_y = int(matcher.group(3))
+        max_y = min_y + int(matcher.group(5))
+        if not check_overlap(claims_array, min_x, max_x, min_y, max_y): return matcher.group(1)
+    return "None"
+
+
+def check_overlap(claims_array, min_x, max_x, min_y, max_y):
+    for x in range(min_x, max_x):
+        for y in range(min_y, max_y):
+            if claims_array[x][y] == "x":
+                return True
+    return False
+
+
 file = open("input.txt", "r")
 lines = file.readlines()
 print("Part 1: " + str(count_overlap(lines)))
+print("Part 2: " + get_no_overlap(lines))
