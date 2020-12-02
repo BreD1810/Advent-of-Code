@@ -15,3 +15,5 @@ let readLinesAsInts (filePath:string) =
         while not sr.EndOfStream do
             yield sr.ReadLine ()
     } |> Seq.map int |> Seq.toList
+
+let charToInt (c : char) = int c - int '0'
