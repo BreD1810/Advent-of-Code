@@ -24,3 +24,5 @@ let readLinesAsCharArrays (filePath : string) =
         while not sr.EndOfStream do
             yield sr.ReadLine ()
     } |> Seq.map Seq.toArray |> Seq.toArray
+
+let readAsString filepath = File.ReadAllText(filepath)
