@@ -1,6 +1,7 @@
 module aoc20.Common
 
 open System.IO
+open System.Text.RegularExpressions
 
 let readLines (filePath:string) =
     seq {
@@ -26,3 +27,8 @@ let readLinesAsCharArrays (filePath : string) =
     } |> Seq.map Seq.toArray |> Seq.toArray
 
 let readAsString filepath = File.ReadAllText(filepath)
+
+let (|Regex|_|) pattern input =
+    let m = Regex.Match(input, pattern)
+    if m.Success then Some(List.tail [for g in m.Groups -> g.Value])
+    else None
