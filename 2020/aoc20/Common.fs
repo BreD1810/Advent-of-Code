@@ -17,6 +17,13 @@ let readLinesAsInts (filePath:string) =
             yield sr.ReadLine ()
     } |> Seq.map int |> Seq.toList
 
+let readLinesAsInt64s (filePath:string) =
+    seq {
+        use sr = new StreamReader (filePath)
+        while not sr.EndOfStream do
+            yield sr.ReadLine ()
+    } |> Seq.map int64 |> Seq.toList
+
 let charToInt (c : char) = int c - int '0'
 
 let readLinesAsCharArrays (filePath : string) =
