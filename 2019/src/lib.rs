@@ -26,3 +26,12 @@ fn get_comma_int_list(day_no: u32, task_no: u32) -> Vec<usize> {
         .filter_map(|l| l.parse::<usize>().ok())
         .collect()
 }
+
+fn get_lines(day_no: u32, task_no: u32) -> Vec<String> {
+    let filename = format!("inputs/{}-{}.txt", day_no, task_no);
+    read_to_string(filename)
+        .expect("Unable to open input")
+        .split("\n")
+        .map(str::to_string)
+        .collect()
+}
