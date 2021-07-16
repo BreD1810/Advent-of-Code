@@ -1,8 +1,8 @@
-use crate::{print_answer, get_lines};
-use std::str::FromStr;
+use crate::{get_lines, print_answer};
 use std::collections::HashSet;
-use std::iter::FromIterator;
 use std::hash::{Hash, Hasher};
+use std::iter::FromIterator;
+use std::str::FromStr;
 
 enum Direction {
     Up,
@@ -26,7 +26,7 @@ impl FromStr for Direction {
 }
 
 impl Direction {
-    fn changes(&self) ->(isize, isize) {
+    fn changes(&self) -> (isize, isize) {
         match self {
             Direction::Up => (0, 1),
             Direction::Right => (1, 0),
@@ -80,9 +80,12 @@ pub fn run() {
 }
 
 fn get_instructions(input: &str) -> Vec<Instruction> {
-    input.split(",")
+    input
+        .split(",")
         .map(|s| Instruction {
-            dir: s[0..1].parse::<Direction>().expect("error parsing direction"),
+            dir: s[0..1]
+                .parse::<Direction>()
+                .expect("error parsing direction"),
             size: s[1..].parse::<isize>().expect("error parsing size"),
         })
         .collect()
@@ -90,7 +93,7 @@ fn get_instructions(input: &str) -> Vec<Instruction> {
 
 fn get_points(ins: &Vec<Instruction>) -> Vec<Point> {
     let mut points = vec![];
-    let mut p = Point{
+    let mut p = Point {
         x: 0,
         y: 0,
         steps: 0,
@@ -137,18 +140,17 @@ fn task_2(wire1: &Vec<Point>, wire2: &Vec<Point>) -> u64 {
     let wire1_set: HashSet<Point> = HashSet::from_iter(wire1.clone().into_iter());
     let wire2_set: HashSet<Point> = HashSet::from_iter(wire2.clone().into_iter());
 
-    let intersections = wire1_set
-        .intersection(&wire2_set)
-        .collect::<Vec<_>>();
+    let intersections = wire1_set.intersection(&wire2_set).collect::<Vec<_>>();
 
-    intersections.iter()
+    intersections
+        .iter()
         .map(|i| {
             let p1 = wire1_set.get(i).expect("couldn't find point on wire");
             let p2 = wire2_set.get(i).expect("couldn't find point on wire");
             (p1.steps + p2.steps) as u64
         })
-    .min()
-    .unwrap_or(0)
+        .min()
+        .unwrap_or(0)
 }
 
 #[cfg(test)]

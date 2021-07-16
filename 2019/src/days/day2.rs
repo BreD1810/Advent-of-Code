@@ -1,4 +1,4 @@
-use crate::{print_answer, get_comma_int_list};
+use crate::{get_comma_int_list, print_answer};
 
 pub fn run() {
     let mut lines = get_comma_int_list(2, 1);
@@ -35,7 +35,7 @@ fn execute_intcode(input_lines: Vec<usize>) -> Vec<usize> {
             1 => perform_addition(&mut lines, index),
             2 => perform_multiplication(&mut lines, index),
             99 => break,
-            _ => panic!("Encountered unexpected opcode.")
+            _ => panic!("Encountered unexpected opcode."),
         }
         index += 4;
     }

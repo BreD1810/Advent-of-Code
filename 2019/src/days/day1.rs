@@ -1,11 +1,10 @@
-use crate::{print_answer, get_unsigned_lines};
+use crate::{get_unsigned_lines, print_answer};
 
-pub fn run () {
+pub fn run() {
     let lines = get_unsigned_lines(1, 1);
-    let a1: u64 = lines.iter()
-        .map(|input| fuel_from_mass(input))
-        .sum();
-    let a2: u64 = lines.iter()
+    let a1: u64 = lines.iter().map(|input| fuel_from_mass(input)).sum();
+    let a2: u64 = lines
+        .iter()
         .map(|input| recursive_fuel_from_mass(input))
         .sum();
     print_answer(1, &a1, &a2);
