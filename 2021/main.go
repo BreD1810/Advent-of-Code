@@ -9,6 +9,8 @@ func main() {
 	day := os.Args[1]
 	switch day {
 	case "1":
-		days.Run()
+		days.Day1()
+	case "2":
+		days.Day2()
 	}
 }

@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func Run() {
+func Day1() {
 	file_contents := util.ReadFileLines("inputs/day01-1.txt")
 	fmt.Printf("Part 1: %d\n", countIncreases(file_contents))
 	fmt.Printf("Part 2: %d\n", countWindowIncreases(file_contents))
