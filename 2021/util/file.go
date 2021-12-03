@@ -26,3 +26,12 @@ func ReadFileLines(path string) []string {
 
 	return lines
 }
+
+func ReadFileInts(path string) []int {
+	fileContents := ReadFileLines(path)
+	fileInts := make([]int, len(fileContents))
+	for i, s := range fileContents {
+		fileInts[i] = GetIntFromString(s)
+	}
+	return fileInts
+}
