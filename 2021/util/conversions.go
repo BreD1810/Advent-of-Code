@@ -8,7 +8,7 @@ import (
 func GetIntFromString(val string) int {
 	val_int, err := strconv.Atoi(val)
 	if err != nil {
-		fmt.Printf("Cannot convert %s to int", val)
+		fmt.Printf("Cannot convert %s to int\n", val)
 	}
 	return val_int
 }
