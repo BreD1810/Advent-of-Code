@@ -22,7 +22,6 @@ const (
 
 func Day4() {
 	fileContents := util.ReadFileLines("inputs/day04-1.txt")
-	// fileContents := util.ReadFileLines("inputs/test.txt")
 	fmt.Printf("Part 1: %d\n", day4Part1(fileContents))
 	fmt.Printf("Part 2: %d\n", day4Part2(fileContents))
 }
