@@ -22,5 +22,7 @@ func main() {
 		days.Day6()
 	case "7":
 		days.Day7()
+	case "8":
+		days.Day8()
 	}
 }
