@@ -11,7 +11,6 @@ import (
 
 func Day8() {
 	fileContents := util.ReadFileLines("inputs/day08-1.txt")
-	// fileContents := util.ReadFileLines("inputs/test.txt")
 	fmt.Printf("Part 1: %d\n", day8Part1(fileContents))
 	fmt.Printf("Part 2: %d\n", day8Part2(fileContents))
 }
