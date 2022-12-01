@@ -7,3 +7,6 @@ I chose to use Python as Java seemed to be a bit "heavy" for small scripts. Pyth
 
 ## 2021
 Learning Go!
+
+## 2022
+Joined a Golang time on a graduate rotation, using AoC to practice.
