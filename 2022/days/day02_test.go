@@ -6,45 +6,41 @@ import (
 )
 
 func TestDay2Part1(t *testing.T) {
-	t.Run("Example", func(t *testing.T) {
-		inp := []string{"A Y", "B X", "C Z"}
-		exp := 15
-		res := day2Part1(inp)
+	tcs := []struct {
+		name string
+		inp  []string
+		exp  int
+	}{
+		{"Example", []string{"A Y", "B X", "C Z"}, 15},
+		{"Actual", util.ReadFileLines("../inputs/day02-1.txt"), 10816},
+	}
+	for _, tc := range tcs {
+		t.Run(tc.name, func(t *testing.T) {
+			res := day2Part1(tc.inp)
 
-		if res != exp {
-			t.Fatalf("expected %d, got %d", exp, res)
-		}
-	})
-
-	t.Run("Actual", func(t *testing.T) {
-		inp := util.ReadFileLines("../inputs/day02-1.txt")
-		exp := 10816
-		res := day2Part1(inp)
-
-		if res != exp {
-			t.Fatalf("expected %d, got %d", exp, res)
-		}
-	})
+			if res != tc.exp {
+				t.Fatalf("expected %d, got %d", tc.exp, res)
+			}
+		})
+	}
 }
 
 func TestDay2Part2(t *testing.T) {
-	t.Run("Example", func(t *testing.T) {
-		inp := []string{"A Y", "B X", "C Z"}
-		exp := 12
-		res := day2Part2(inp)
+	tcs := []struct {
+		name string
+		inp  []string
+		exp  int
+	}{
+		{"Example", []string{"A Y", "B X", "C Z"}, 12},
+		{"Actual", util.ReadFileLines("../inputs/day02-1.txt"), 11657},
+	}
+	for _, tc := range tcs {
+		t.Run(tc.name, func(t *testing.T) {
+			res := day2Part2(tc.inp)
 
-		if res != exp {
-			t.Fatalf("expected %d, got %d", exp, res)
-		}
-	})
-
-	t.Run("Actual", func(t *testing.T) {
-		inp := util.ReadFileLines("../inputs/day02-1.txt")
-		exp := 11657
-		res := day2Part2(inp)
-
-		if res != exp {
-			t.Fatalf("expected %d, got %d", exp, res)
-		}
-	})
+			if res != tc.exp {
+				t.Fatalf("expected %d, got %d", tc.exp, res)
+			}
+		})
+	}
 }
