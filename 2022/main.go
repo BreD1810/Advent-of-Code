@@ -11,6 +11,8 @@ func main() {
 	switch day {
 	case "1":
 		days.Day1()
+	case "2":
+		days.Day2()
 	default:
 		log.Fatal("Day not found")
 	}
