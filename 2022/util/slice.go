@@ -8,3 +8,12 @@ func SortIntSliceDecending(s []int) {
 		return s[i] > s[j]
 	})
 }
+
+// SumIntSlice sums the integers in an []int
+func SumIntSlice(s []int) int {
+	var total int
+	for _, i := range s {
+		total += i
+	}
+	return total
+}
