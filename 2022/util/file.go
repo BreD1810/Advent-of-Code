@@ -46,3 +46,20 @@ func ReadFileInts(path string) []int {
 	}
 	return fileInts
 }
+
+// ReadFileIntLines reads a file of int lines to a 2D array
+func ReadFileIntLines(path string) [][]int {
+	fileContents := ReadFileLines(path)
+	a := make([][]int, len(fileContents))
+	for i, l := range fileContents {
+		curA := make([]int, len(l))
+		for j, d := range l {
+			curA[j] = int(d) - '0'
+			// curA = append(curA, int(d)-'0')
+		}
+		a[i] = curA
+		// a = append(a, curA)
+	}
+
+	return a
+}
