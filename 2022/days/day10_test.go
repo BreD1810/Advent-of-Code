@@ -161,7 +161,7 @@ func TestDay10Part1(t *testing.T) {
 		exp  int
 	}{
 		{"Example", exampleInp, 13140},
-		{"Actual", util.ReadFileLines("../inputs/day10-1.txt"), 0},
+		{"Actual", util.ReadFileLines("../inputs/day10-1.txt"), 17180},
 	}
 	for _, tc := range tcs {
 		t.Run(tc.name, func(t *testing.T) {

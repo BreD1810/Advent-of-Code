@@ -54,7 +54,6 @@ func day10Part2(fileContents []string) []rune {
 	cycleNo, x := 0, 1
 
 	for _, l := range fileContents {
-		fmt.Printf("Cycle no: %d\n", cycleNo)
 		if cycleNo >= 240 {
 			break
 		}
