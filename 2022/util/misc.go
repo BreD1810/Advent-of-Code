@@ -5,6 +5,8 @@ import (
 	"strconv"
 )
 
+var MaxInt = int(^uint(0) >> 1)
+
 // PowWithInts lets you use math.pow with integers
 func PowWithInts(x int, y int) int {
 	return int(math.Pow(float64(x), float64(y)))
@@ -22,4 +24,8 @@ func IntAbs(i int) int {
 		return -i
 	}
 	return i
+}
+
+type Coordinate struct {
+	X, Y int
 }
