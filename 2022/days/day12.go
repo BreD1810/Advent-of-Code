@@ -3,6 +3,7 @@ package days
 import (
 	"aoc-2022/util"
 	"fmt"
+	"runtime"
 	"strings"
 
 	"github.com/RyanCarrier/dijkstra"
@@ -12,7 +13,7 @@ func Day12() {
 	fileContents := util.ReadFileLines("inputs/day12-1.txt")
 
 	fmt.Printf("Part 1: %d\n", day12Part1(fileContents))
-	fmt.Printf("Part 2: %d\n", day12Part2(fileContents))
+	fmt.Printf("Part 2: %d\n", day12Part2Pooling(fileContents))
 }
 
 type heightmap struct {
@@ -23,7 +24,7 @@ type heightmap struct {
 
 func day12Part1(fileContents []string) int {
 	hm := parseHeightmap(fileContents)
-	printHeightmap(hm)
+	// printHeightmap(hm)
 	return runDijkstras(hm)
 }
 
@@ -77,12 +78,11 @@ func runDijkstras(hm heightmap) int {
 		}
 	}
 
-	fmt.Printf("Starting at %d, ending at %d\n", coordinateToInt(hm.start), coordinateToInt(hm.dest))
+	// fmt.Printf("Starting at %d, ending at %d\n", coordinateToInt(hm.start), coordinateToInt(hm.dest))
 
 	res, err := g.Shortest(coordinateToInt(hm.start), coordinateToInt(hm.dest))
 	if err != nil {
-		fmt.Println("No path found")
-		// log.Fatalln(err)
+		// fmt.Println("No path found")
 		return util.MaxInt
 	}
 	return int(res.Distance)
@@ -119,13 +119,71 @@ func printHeightmap(hm heightmap) {
 		fmt.Println()
 	}
 }
-
 func day12Part2(fileContents []string) int {
+	return day12Part2FanOut(fileContents)
+}
+
+func day12Part2Pooling(fileContents []string) int {
 	hm := parseHeightmap(fileContents)
-	printHeightmap(hm)
 
 	aLocs := getALocations(hm)
-	fmt.Printf("Number of a: %d\n", len(aLocs))
+	workCh := make(chan util.Coordinate, len(aLocs))
+	resCh := make(chan int, len(aLocs))
+	minSteps := util.MaxInt
+
+	noCpus := runtime.NumCPU()
+	for t := 0; t < noCpus; t++ {
+		go func() {
+			for l := range workCh {
+				newHm := heightmap{data: hm.data, start: l, dest: hm.dest}
+				resCh <- runDijkstras(newHm)
+			}
+		}()
+	}
+
+	for _, loc := range aLocs {
+		workCh <- loc
+	}
+
+	for i := 0; i < len(aLocs); i++ {
+		d := <-resCh
+		if d < minSteps {
+			minSteps = d
+		}
+	}
+
+	return minSteps
+}
+
+func day12Part2FanOut(fileContents []string) int {
+	hm := parseHeightmap(fileContents)
+
+	aLocs := getALocations(hm)
+	ch := make(chan int, len(aLocs))
+	minSteps := util.MaxInt
+
+	for _, loc := range aLocs {
+		go func(loc util.Coordinate) {
+			newHm := heightmap{data: hm.data, start: loc, dest: hm.dest}
+			ch <- runDijkstras(newHm)
+		}(loc)
+	}
+
+	for i := 0; i < len(aLocs); i++ {
+		d := <-ch
+		if d < minSteps {
+			minSteps = d
+		}
+	}
+
+	return minSteps
+}
+
+func day12Part2Single(fileContents []string) int {
+	hm := parseHeightmap(fileContents)
+
+	aLocs := getALocations(hm)
+	// fmt.Printf("Number of a: %d\n", len(aLocs))
 	minSteps := util.MaxInt
 
 	for _, loc := range aLocs {

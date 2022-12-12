@@ -60,3 +60,41 @@ func TestDay12Part2(t *testing.T) {
 		})
 	}
 }
+
+func BenchmarkDay12Part2(b *testing.B) {
+	b.Run("Single threaded", benchSingleThread)
+	b.Run("Fan out", benchFanOut)
+	b.Run("Pooling", benchPool)
+}
+
+var outSave int
+
+func benchSingleThread(b *testing.B) {
+	var res int
+	inp := util.ReadFileLines("../inputs/day12-1.txt")
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		res = day12Part2Single(inp)
+	}
+	outSave = res
+}
+
+func benchFanOut(b *testing.B) {
+	var res int
+	inp := util.ReadFileLines("../inputs/day12-1.txt")
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		res = day12Part2FanOut(inp)
+	}
+	outSave = res
+}
+
+func benchPool(b *testing.B) {
+	var res int
+	inp := util.ReadFileLines("../inputs/day12-1.txt")
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		res = day12Part2Pooling(inp)
+	}
+	outSave = res
+}
