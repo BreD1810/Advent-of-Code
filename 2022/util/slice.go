@@ -1,6 +1,9 @@
 package util
 
-import "sort"
+import (
+	"fmt"
+	"sort"
+)
 
 //SortIntSliceDecending sorts an int slice in decending order
 func SortIntSliceDecending(s []int) {
@@ -16,4 +19,14 @@ func SumIntSlice(s []int) int {
 		total += i
 	}
 	return total
+}
+
+// Print2DRuneArray prints a 2D rune array
+func Print2DRuneArray(rs [][]rune) {
+	for _, row := range rs {
+		for _, r := range row {
+			fmt.Printf("%c", r)
+		}
+		fmt.Println()
+	}
 }
