@@ -30,3 +30,16 @@ func Print2DRuneArray(rs [][]rune) {
 		fmt.Println()
 	}
 }
+
+// RemoveFromStringSlice removes a string from a string slice
+func RemoveFromStringSlice(s string, ss []string) []string {
+	var newSs []string
+
+	for _, s2 := range ss {
+		if s != s2 {
+			newSs = append(newSs, s2)
+		}
+	}
+
+	return newSs
+}

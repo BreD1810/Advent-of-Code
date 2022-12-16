@@ -53,7 +53,6 @@ func countBeaconlessLocationsAtRow(pairs []sensorBeaconPair, row int) int {
 		}
 
 		manhatten := getManhatten(p.sensorLoc, p.beaconLoc)
-		// manhatten := math.Abs(float64(p.sensorLoc.X)-float64(p.beaconLoc.X)) + math.Abs(float64(p.sensorLoc.Y)-float64(p.beaconLoc.Y))
 		yDistanceToRow := util.IntAbs(row - p.sensorLoc.Y)
 		radiusAtRow := manhatten - yDistanceToRow
 		if radiusAtRow >= 0 {
