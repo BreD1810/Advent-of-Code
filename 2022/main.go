@@ -41,6 +41,8 @@ func main() {
 		days.Day15()
 	case "16":
 		days.Day16()
+	case "18":
+		days.Day18()
 	default:
 		log.Fatal("Day not found")
 	}

@@ -29,3 +29,7 @@ func IntAbs(i int) int {
 type Coordinate struct {
 	X, Y int
 }
+
+type Coordinate3D struct {
+	X, Y, Z int
+}
