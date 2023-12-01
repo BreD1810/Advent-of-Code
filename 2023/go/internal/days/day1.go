@@ -14,8 +14,12 @@ func Day1() {
 }
 
 func day1Part1(fileContents []string) int {
+	return solver(fileContents)
+}
+
+func solver(lines []string) int {
 	total := 0
-	for _, l := range fileContents {
+	for _, l := range lines {
 		firstDigit, lastDigit := -1, -1
 		for _, c := range l {
 			if unicode.IsDigit(c) {
@@ -32,50 +36,20 @@ func day1Part1(fileContents []string) int {
 }
 
 func day1Part2(fileContents []string) int {
-	total := 0
+	var lines []string
 	for _, l := range fileContents {
-		positions := map[int][]int{}
-		for p := 0; p < 10; p++ {
-			var digitPos []int
-			s := util.DigitToString(p)
-
-			wordIndex := strings.Index(l, s)
-			digitIndex := strings.Index(l, fmt.Sprintf("%d", p))
-			if wordIndex >= 0 {
-				digitPos = append(digitPos, wordIndex)
-			}
-			if digitIndex >= 0 {
-				digitPos = append(digitPos, digitIndex)
-			}
-
-			wordIndex = strings.LastIndex(l, s)
-			digitIndex = strings.LastIndex(l, fmt.Sprintf("%d", p))
-			if wordIndex >= 0 {
-				digitPos = append(digitPos, wordIndex)
-			}
-			if digitIndex >= 0 {
-				digitPos = append(digitPos, digitIndex)
-			}
-
-			positions[p] = digitPos
-		}
-
-		firstDigit, lastDigit := 0, 0
-		firstPosition, lastPosition := len(l), -1
-		for d, digitPositions := range positions {
-			for _, position := range digitPositions {
-				if position < firstPosition {
-					firstDigit = d
-					firstPosition = position
-				}
-				if position > lastPosition {
-					lastDigit = d
-					lastPosition = position
-				}
-			}
-		}
-
-		total += (10 * firstDigit) + lastDigit
+		fmt.Println(l)
+		l = strings.ReplaceAll(l, "one", "one1one")
+		l = strings.ReplaceAll(l, "two", "two2two")
+		l = strings.ReplaceAll(l, "three", "three3three")
+		l = strings.ReplaceAll(l, "four", "four4four")
+		l = strings.ReplaceAll(l, "five", "five5five")
+		l = strings.ReplaceAll(l, "six", "six6six")
+		l = strings.ReplaceAll(l, "seven", "seven7seven")
+		l = strings.ReplaceAll(l, "eight", "eight8eight")
+		l = strings.ReplaceAll(l, "nine", "nine9nine")
+		fmt.Println(l)
+		lines = append(lines, l)
 	}
-	return total
+	return solver(lines)
 }
