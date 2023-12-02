@@ -38,7 +38,6 @@ func solver(lines []string) int {
 func day1Part2(fileContents []string) int {
 	var lines []string
 	for _, l := range fileContents {
-		fmt.Println(l)
 		l = strings.ReplaceAll(l, "one", "one1one")
 		l = strings.ReplaceAll(l, "two", "two2two")
 		l = strings.ReplaceAll(l, "three", "three3three")
@@ -48,7 +47,6 @@ func day1Part2(fileContents []string) int {
 		l = strings.ReplaceAll(l, "seven", "seven7seven")
 		l = strings.ReplaceAll(l, "eight", "eight8eight")
 		l = strings.ReplaceAll(l, "nine", "nine9nine")
-		fmt.Println(l)
 		lines = append(lines, l)
 	}
 	return solver(lines)
