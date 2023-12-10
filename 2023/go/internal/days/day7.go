@@ -251,7 +251,6 @@ func day7Part2(fileContents []string) int {
 	total := 0
 	for rank, h := range hands {
 		total += (rank + 1) * h.bid
-		fmt.Printf("hand: %+v, strength: %d\n", h.cards, determineHandStrength2(h))
 	}
 	return total
 }
