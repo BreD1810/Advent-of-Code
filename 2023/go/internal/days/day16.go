@@ -9,7 +9,6 @@ import (
 func Day16() {
 	fileContents := util.ReadFileLines("inputs/day16-example.txt")
 	fmt.Printf("Part 1: %d\n", day16Part1(fileContents))
-	//fmt.Printf("Part 2: %d\n", day16Part2(fileContents))
 }
 
 type direction util.Coordinate
