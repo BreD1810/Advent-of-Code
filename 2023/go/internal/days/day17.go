@@ -19,6 +19,7 @@ const (
 func Day17() {
 	fileContents := util.ReadFileLines("inputs/day17-example.txt")
 	fmt.Printf("Part 1: %d\n", day17Part1(fileContents))
+	fmt.Printf("Part 2: %d\n", day17Part2(fileContents))
 }
 
 func day17Part1(fileContents []string) int {

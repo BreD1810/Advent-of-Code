@@ -30,6 +30,10 @@ type Coordinate struct {
 	X, Y int
 }
 
+type Coordinate64 struct {
+	X, Y int64
+}
+
 type Coordinate3D struct {
 	X, Y, Z int
 }
