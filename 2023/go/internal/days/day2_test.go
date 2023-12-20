@@ -23,6 +23,7 @@ func TestDay2Part1(t *testing.T) {
 		{"Example", exampleInp, cubeCounts{red: 12, green: 13, blue: 14}, 8},
 		{"Actual", util.ReadFileLines("../../inputs/day2.txt"), cubeCounts{red: 12, green: 13, blue: 14}, 2879},
 	}
+	t.Parallel()
 	for _, tc := range tcs {
 		t.Run(tc.name, func(t *testing.T) {
 			res := day2Part1(tc.inp, tc.colors)
@@ -51,6 +52,7 @@ func TestDay2Part2(t *testing.T) {
 		{"Example", exampleInp, cubeCounts{red: 12, green: 13, blue: 14}, 2286},
 		{"Actual", util.ReadFileLines("../../inputs/day2.txt"), cubeCounts{red: 12, green: 13, blue: 14}, 65122},
 	}
+	t.Parallel()
 	for _, tc := range tcs {
 		t.Run(tc.name, func(t *testing.T) {
 			res := day2Part2(tc.inp)

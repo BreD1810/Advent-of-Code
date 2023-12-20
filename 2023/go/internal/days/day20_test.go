@@ -15,6 +15,7 @@ func TestDay20Part1(t *testing.T) {
 		{"Example 2", util.ReadFileLines("../../inputs/day20-example-2.txt"), 11687500},
 		{"Actual", util.ReadFileLines("../../inputs/day20-actual.txt"), 731517480},
 	}
+	t.Parallel()
 	for _, tc := range tcs {
 		t.Run(tc.name, func(t *testing.T) {
 			res := day20Part1(tc.inp)
@@ -34,6 +35,7 @@ func TestDay20Part2(t *testing.T) {
 		{"Example", util.ReadFileLines("../../inputs/day20-example-2.txt"), 1},
 		{"Actual", util.ReadFileLines("../../inputs/day20-actual.txt"), 244178746156661},
 	}
+	t.Parallel()
 	for _, tc := range tcs {
 		t.Run(tc.name, func(t *testing.T) {
 			res := day20Part2(tc.inp)
