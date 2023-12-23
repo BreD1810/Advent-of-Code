@@ -53,6 +53,8 @@ func main() {
 		days.Day19()
 	case "20":
 		days.Day20()
+	case "21":
+		days.Day21()
 	default:
 		fmt.Fprintln(os.Stderr, "no day number supplied")
 		os.Exit(1)
