@@ -1,4 +1,4 @@
-use days::day1;
+use days::{day1, day2};
 use std::{env, process};
 
 mod days;
@@ -17,6 +17,7 @@ fn main() {
 
     match day_number {
         1 => day1::run(),
+        2 => day2::run(),
         _ => {
             eprintln!("day number {day_number} not recognised");
             process::exit(1);

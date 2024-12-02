@@ -7,4 +7,4 @@ run:
 	cargo run $(DAY)
 
 test:
-	cargo test
+	cargo test day$(DAY)
