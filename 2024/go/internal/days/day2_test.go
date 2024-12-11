@@ -31,7 +31,7 @@ func TestDay2Part1(t *testing.T) {
 		},
 		{
 			name: "actual",
-			inp:  util.ReadFileIntLines("../../inputs/day2.txt"),
+			inp:  util.ReadFileIntLineSpaced("../../inputs/day2.txt"),
 			exp:  624,
 		},
 	}
@@ -59,7 +59,7 @@ func TestDay2Part2(t *testing.T) {
 		},
 		{
 			name: "actual",
-			inp:  util.ReadFileIntLines("../../inputs/day2.txt"),
+			inp:  util.ReadFileIntLineSpaced("../../inputs/day2.txt"),
 			exp:  658,
 		},
 	}

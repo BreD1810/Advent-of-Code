@@ -6,7 +6,7 @@ import (
 )
 
 func Day2() {
-	fileContents := util.ReadFileIntLines("inputs/day2.txt")
+	fileContents := util.ReadFileIntLineSpaced("inputs/day2.txt")
 	fmt.Printf("Part 1: %d\n", day2Part1(fileContents))
 	fmt.Printf("Part 2: %d\n", day2Part2(fileContents))
 }

@@ -55,6 +55,21 @@ func ReadFileIntLines(path string) [][]int {
 	fileContents := ReadFileLines(path)
 	a := make([][]int, len(fileContents))
 	for i, l := range fileContents {
+		curA := make([]int, len(l))
+		for j, d := range l {
+			curA[j] = int(d) - '0'
+		}
+		a[i] = curA
+	}
+
+	return a
+}
+
+// ReadFileIntLineSpaced reads a file of ints, separated by spaces, to a 2D array
+func ReadFileIntLineSpaced(path string) [][]int {
+	fileContents := ReadFileLines(path)
+	a := make([][]int, len(fileContents))
+	for i, l := range fileContents {
 		curA := []int{}
 		lineVals := strings.Fields(l)
 		for _, d := range lineVals {
