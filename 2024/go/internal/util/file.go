@@ -29,6 +29,15 @@ func ReadFileLines(path string) []string {
 	return lines
 }
 
+// ReadFileLine reads a single line file
+func ReadFileLine(path string) string {
+	file, err := os.ReadFile(path)
+	if err != nil {
+		fmt.Println(err)
+	}
+	return strings.Replace(string(file), "\n", "", 1)
+}
+
 // ReadFile2DRune reads a file to a 2D slice of runes
 func ReadFile2DRune(path string) [][]rune {
 	file, err := os.Open(path)
