@@ -37,3 +37,18 @@ func (m Movement) CycleClockwise() Movement {
 		return MoveUnknown
 	}
 }
+
+func (m Movement) String() string {
+	switch m {
+	case MoveUp:
+		return "up"
+	case MoveDown:
+		return "down"
+	case MoveLeft:
+		return "left"
+	case MoveRight:
+		return "right"
+	default:
+		return "unknown"
+	}
+}
